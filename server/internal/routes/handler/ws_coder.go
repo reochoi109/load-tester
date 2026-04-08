@@ -9,14 +9,14 @@ import (
 )
 
 func (h *Handler) WSEchoCoder(w http.ResponseWriter, r *http.Request) {
-	_ = h
-
 	c, err := websocket.Accept(w, r, &websocket.AcceptOptions{
 		OriginPatterns: []string{"*"},
 	})
 	if err != nil {
 		return
 	}
+	trackID := h.trackCoderConn(c)
+	defer h.ws.untrack(trackID)
 	defer c.Close(websocket.StatusNormalClosure, "bye")
 
 	ctx, cancel := context.WithCancel(r.Context())

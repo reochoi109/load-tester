@@ -29,3 +29,5 @@ go run ./cmd
 - `GET /__timeout__`
 - `GET /ws/echo/gorilla` (WebSocket)
 - `GET /ws/echo/coder` (WebSocket)
+- `GET /ws/chat/gorilla` (WebSocket)
+- `GET /ws/chat/coder` (WebSocket)

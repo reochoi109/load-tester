@@ -13,3 +13,10 @@ export function pickWeighted(items) {
   }
   return items[items.length - 1].value;
 }
+
+// [min, max] 정수 랜덤
+export function randomInt(min, max) {
+  const lo = Math.ceil(min);
+  const hi = Math.floor(max);
+  return Math.floor(Math.random() * (hi - lo + 1)) + lo;
+}

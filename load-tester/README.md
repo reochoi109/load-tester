@@ -33,6 +33,14 @@ make load FLOW=post-read
 make load FLOW=error-mix
 make load FLOW=ws-echo-gorilla
 make load FLOW=ws-echo-coder
+make load FLOW=ws-chat-gorilla
+make load FLOW=ws-chat-coder
+make load FLOW=ws-soak-gorilla
+make load FLOW=ws-soak-coder
+make load FLOW=ws-churn-gorilla
+make load FLOW=ws-churn-coder
+make load FLOW=ws-room-chat-gorilla
+make load FLOW=ws-room-chat-coder
 ```
 
 Config 문서:

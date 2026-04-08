@@ -106,6 +106,7 @@ make load CONFIG=load-tester/config/env.staging.json
 - `errorMixWeights`: 오류 mix 가중치(상대 비율)
 - `errorPaths`: 오류 유도 경로들
 - `errorTimeout.request`: timeout 유도 시 요청 timeout 값 (예: `1s`)
+- `ws`: WebSocket 테스트 설정
 - `thresholds`: k6 thresholds 규칙
 
 ## thresholds (필수만)
@@ -147,3 +148,17 @@ make load CONFIG=load-tester/config/env.staging.json
 
 - `error-mix`는 의도적으로 실패(401/404/500/timeout)를 만들기 때문에 `http_req_failed` thresholds를 그대로 두면 거의 항상 실패합니다.
 - 권장: `error-mix`는 별도로 실행하고, 필요하면 `K6_ARGS="--no-thresholds"`로 분리 실행합니다.
+
+## WebSocket options (ws)
+
+```json
+{
+  "ws": {
+    "messageIntervalMs": 200,
+    "sessionMs": 5000,
+    "payloadBytes": 64,
+    "roomCount": 5,
+    "soakMs": 600000
+  }
+}
+```

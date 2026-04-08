@@ -4,12 +4,9 @@ import (
 	"net/http"
 
 	"load-test/internal/routes/handler"
-	"load-test/internal/store"
 )
 
-func Open(st *store.Store) http.Handler {
-	h := handler.New(st)
-
+func Open(h *handler.Handler) http.Handler {
 	mux := http.NewServeMux()
 
 	// System
@@ -34,5 +31,7 @@ func Open(st *store.Store) http.Handler {
 	// WebSocket
 	mux.HandleFunc("/ws/echo/gorilla", h.WSEchoGorilla)
 	mux.HandleFunc("/ws/echo/coder", h.WSEchoCoder)
+	mux.HandleFunc("/ws/chat/gorilla", h.WSChatGorilla)
+	mux.HandleFunc("/ws/chat/coder", h.WSChatCoder)
 	return mux
 }

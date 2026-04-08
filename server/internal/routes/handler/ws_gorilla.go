@@ -8,7 +8,6 @@ import (
 )
 
 func (h *Handler) WSEchoGorilla(w http.ResponseWriter, r *http.Request) {
-	_ = h
 	upgrader := websocket.Upgrader{
 		CheckOrigin: func(r *http.Request) bool { return true },
 	}
@@ -17,6 +16,8 @@ func (h *Handler) WSEchoGorilla(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		return
 	}
+	trackID := h.trackGorillaConn(conn)
+	defer h.ws.untrack(trackID)
 	defer conn.Close()
 
 	_ = conn.SetReadDeadline(time.Now().Add(30 * time.Second))

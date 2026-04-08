@@ -1,7 +1,9 @@
 package middleware
 
 import (
+	"bufio"
 	"log"
+	"net"
 	"net/http"
 	"time"
 )
@@ -10,6 +12,30 @@ type statusWriter struct {
 	http.ResponseWriter
 	status int
 	bytes  int
+}
+
+// Hijack preserves WebSocket support (http.Hijacker) through our wrapper.
+func (w *statusWriter) Hijack() (net.Conn, *bufio.ReadWriter, error) {
+	hj, ok := w.ResponseWriter.(http.Hijacker)
+	if !ok {
+		return nil, nil, http.ErrNotSupported
+	}
+	return hj.Hijack()
+}
+
+// Flush preserves streaming support (http.Flusher) through our wrapper.
+func (w *statusWriter) Flush() {
+	if f, ok := w.ResponseWriter.(http.Flusher); ok {
+		f.Flush()
+	}
+}
+
+// Push preserves HTTP/2 server push support (http.Pusher) when available.
+func (w *statusWriter) Push(target string, opts *http.PushOptions) error {
+	if p, ok := w.ResponseWriter.(http.Pusher); ok {
+		return p.Push(target, opts)
+	}
+	return http.ErrNotSupported
 }
 
 func (w *statusWriter) WriteHeader(code int) {

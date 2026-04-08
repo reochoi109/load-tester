@@ -15,6 +15,14 @@ import errorNonJson from "./errors/non-json.js";
 import errorTimeout from "./errors/timeout.js";
 import wsEchoGorilla from "./ws/ws-echo-gorilla.js";
 import wsEchoCoder from "./ws/ws-echo-coder.js";
+import wsChatGorilla from "./ws/ws-chat-gorilla.js";
+import wsChatCoder from "./ws/ws-chat-coder.js";
+import wsSoakGorilla from "./ws/ws-soak-gorilla.js";
+import wsSoakCoder from "./ws/ws-soak-coder.js";
+import wsChurnGorilla from "./ws/ws-churn-gorilla.js";
+import wsChurnCoder from "./ws/ws-churn-coder.js";
+import wsRoomChatGorilla from "./ws/ws-room-chat-gorilla.js";
+import wsRoomChatCoder from "./ws/ws-room-chat-coder.js";
 
 // 흐름 이름 -> 함수 매핑
 const flows = {
@@ -35,6 +43,14 @@ const flows = {
   "error-timeout": errorTimeout,
   "ws-echo-gorilla": wsEchoGorilla,
   "ws-echo-coder": wsEchoCoder,
+  "ws-chat-gorilla": wsChatGorilla,
+  "ws-chat-coder": wsChatCoder,
+  "ws-soak-gorilla": wsSoakGorilla,
+  "ws-soak-coder": wsSoakCoder,
+  "ws-churn-gorilla": wsChurnGorilla,
+  "ws-churn-coder": wsChurnCoder,
+  "ws-room-chat-gorilla": wsRoomChatGorilla,
+  "ws-room-chat-coder": wsRoomChatCoder,
 };
 
 // 등록된 흐름을 이름으로 조회
