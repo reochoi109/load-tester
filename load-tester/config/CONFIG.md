@@ -1,13 +1,13 @@
 # Config (env.\*.json)
 
-`load-test/config/env.*.json`은 k6가 사용할 **환경 설정 파일**입니다.
+`load-tester/config/env.*.json`은 k6가 사용할 **환경 설정 파일**입니다.
 
 ## 사용
 
 ```bash
 make load ENV=staging
 make load ENV=prod
-make load CONFIG=load-test/config/env.staging.json
+make load CONFIG=load-tester/config/env.staging.json
 ```
 
 > JSON에는 주석을 넣을 수 없습니다. 설명은 이 문서에만 둡니다.

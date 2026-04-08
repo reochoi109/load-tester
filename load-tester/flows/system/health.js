@@ -11,7 +11,7 @@ import { tag } from "../../common/http/tags.js";
 import { thinkTime } from "../../common/utils/time.js";
 
 // 실행 시 사용할 환경 설정 로드 (기본: staging)
-const cfg = loadConfig(__ENV.K6_CONFIG || "load-test/config/env.staging.json");
+const cfg = loadConfig(__ENV.K6_CONFIG || "load-tester/config/env.staging.json");
 
 // 헬스 체크 요청 흐름
 export default function healthFlow() {

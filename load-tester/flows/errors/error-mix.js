@@ -7,7 +7,7 @@ import serverError from "./server-error.js";
 import timeout from "./timeout.js";
 import unauthorized from "./unauthorized.js";
 
-const cfg = loadConfig(__ENV.K6_CONFIG || "load-test/config/env.staging.json");
+const cfg = loadConfig(__ENV.K6_CONFIG || "load-tester/config/env.staging.json");
 const enabled = cfg.errorMixEnabled !== false;
 
 // 오류 케이스를 가중치로 섞어 실행

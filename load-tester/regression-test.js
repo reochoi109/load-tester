@@ -2,7 +2,7 @@ import { loadConfig } from "./common/config/load-config.js";
 import { runFlow } from "./common/runner.js";
 
 // 실행 환경 설정 로드
-const cfg = loadConfig(__ENV.K6_CONFIG || "load-test/config/env.staging.json");
+const cfg = loadConfig(__ENV.K6_CONFIG || "load-tester/config/env.staging.json");
 
 const flowName = __ENV.FLOW || "user-journey";
 

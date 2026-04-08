@@ -13,6 +13,8 @@ import errorUnauthorized from "./errors/unauthorized.js";
 import errorServer from "./errors/server-error.js";
 import errorNonJson from "./errors/non-json.js";
 import errorTimeout from "./errors/timeout.js";
+import wsEchoGorilla from "./ws/ws-echo-gorilla.js";
+import wsEchoCoder from "./ws/ws-echo-coder.js";
 
 // 흐름 이름 -> 함수 매핑
 const flows = {
@@ -31,6 +33,8 @@ const flows = {
   "error-500": errorServer,
   "error-non-json": errorNonJson,
   "error-timeout": errorTimeout,
+  "ws-echo-gorilla": wsEchoGorilla,
+  "ws-echo-coder": wsEchoCoder,
 };
 
 // 등록된 흐름을 이름으로 조회

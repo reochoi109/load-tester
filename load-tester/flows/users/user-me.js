@@ -4,7 +4,7 @@ import { randomItem } from "../../common/utils/random.js";
 import { thinkTime } from "../../common/utils/time.js";
 import { getMe, login } from "../../common/api/user.js";
 
-const cfg = loadConfig(__ENV.K6_CONFIG || "load-test/config/env.staging.json");
+const cfg = loadConfig(__ENV.K6_CONFIG || "load-tester/config/env.staging.json");
 const authMode = (cfg.authMode || "token").toLowerCase();
 const authCfg = cfg.auth || {};
 const users = loadUsers();

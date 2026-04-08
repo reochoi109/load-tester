@@ -1,6 +1,6 @@
 # Go Test Server
 
-`server/`는 `load-test/`의 k6 시나리오를 로컬에서 바로 실행해볼 수 있도록 만든 테스트용 API 서버입니다.
+`server/`는 `load-tester/`의 k6 시나리오를 로컬에서 바로 실행해볼 수 있도록 만든 테스트용 API 서버입니다.
 
 ## Prerequisites
 
@@ -27,4 +27,5 @@ go run ./cmd
 - `GET /__server_error__`
 - `GET /__non_json__`
 - `GET /__timeout__`
-
+- `GET /ws/echo/gorilla` (WebSocket)
+- `GET /ws/echo/coder` (WebSocket)

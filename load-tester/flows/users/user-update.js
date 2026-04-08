@@ -5,7 +5,7 @@ import { thinkTime } from "../../common/utils/time.js";
 import { login, updateMe } from "../../common/api/user.js";
 import { buildUserUpdatePayload } from "../../common/payloads/user.js";
 
-const cfg = loadConfig(__ENV.K6_CONFIG || "load-test/config/env.staging.json");
+const cfg = loadConfig(__ENV.K6_CONFIG || "load-tester/config/env.staging.json");
 const authMode = (cfg.authMode || "token").toLowerCase();
 const authCfg = cfg.auth || {};
 const users = loadUsers();

@@ -31,5 +31,8 @@ func Open(st *store.Store) http.Handler {
 	mux.HandleFunc("/__non_json__", h.IntentionalNonJSON)
 	mux.HandleFunc("/__timeout__", h.IntentionalTimeout)
 
+	// WebSocket
+	mux.HandleFunc("/ws/echo/gorilla", h.WSEchoGorilla)
+	mux.HandleFunc("/ws/echo/coder", h.WSEchoCoder)
 	return mux
 }
